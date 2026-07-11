@@ -7,19 +7,20 @@ import java.awt.event.*;
 public class MainWindow {
 
 
-    public static void styleTopButtons(JButton btn, Color bgColor, Color fgColor) {
-        btn.setBackground(bgColor);
-        btn.setForeground(fgColor);
+    public static void styleTopButtons(JButton btn) {
+        Color navy = new Color(28, 37, 65);
+        btn.setBackground(navy);
+        btn.setForeground(Color.WHITE);
         btn.setFocusPainted(false);
         btn.setBorderPainted(false);
         btn.setFont(new Font("Arial", Font.PLAIN, 13));
         btn.setPreferredSize(new Dimension(100, 30));
     }
     
-    public static void styleLeftButtons(JButton btn, Color bgColor, Color fgColor) {
-        btn.setBackground(bgColor);
-        btn.setForeground(fgColor);
-        
+    public static void styleLeftButtons(JButton btn) {
+        Color navy = new Color(28, 37, 65);
+        btn.setBackground(navy);
+        btn.setForeground(Color.WHITE);
         btn.setFocusPainted(false);
         btn.setBorderPainted(false);
         btn.setFont(new Font("Arial", Font.PLAIN, 13));
@@ -36,15 +37,13 @@ public class MainWindow {
         f.setMinimumSize(new Dimension(800, 600));
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        Color navy = new Color(0, 0, 128);
-        Color lightBlue = new Color(173, 216, 230);
+        Color navy = new Color(28, 37, 65);
+        Color lightBlue = new Color(255, 255, 255);
 
         CardLayout cl = new CardLayout();
         JPanel main = new JPanel(cl);
 
-        JPanel dashboardPanel = new JPanel();
-        dashboardPanel.setBackground(lightBlue);
-        dashboardPanel.add(new JLabel("Dashboard"));
+        DashBoardPanel dashboardPanel = new DashBoardPanel();
 
         JPanel inventoryPanel = new JPanel();
         inventoryPanel.setBackground(lightBlue);
@@ -90,11 +89,11 @@ public class MainWindow {
 
         
 
-        styleTopButtons(viewButton, navy, lightBlue);
-        styleTopButtons(addButton, navy, lightBlue);
-        styleTopButtons(editButton, navy, lightBlue);
-        styleTopButtons(deleteButton, navy, lightBlue);
-        styleTopButtons(dispenseButton, navy, lightBlue);
+        styleTopButtons(viewButton);
+        styleTopButtons(addButton);
+        styleTopButtons(editButton);
+        styleTopButtons(deleteButton);
+        styleTopButtons(dispenseButton);
 
         top.add(viewButton);
         top.add(addButton);
@@ -143,12 +142,12 @@ public class MainWindow {
         });
 
 
-        styleLeftButtons(logoButton, navy, lightBlue);
-        styleLeftButtons(medicineButton, navy, lightBlue);
-        styleLeftButtons(inventoryButton, navy, lightBlue);
-        styleLeftButtons(stockButton, navy, lightBlue);
-        styleLeftButtons(dispenseButton2, navy, lightBlue);
-        styleLeftButtons(purchaseOrderButton, navy, lightBlue);
+        styleLeftButtons(logoButton);
+        styleLeftButtons(medicineButton);
+        styleLeftButtons(inventoryButton);
+        styleLeftButtons(stockButton);
+        styleLeftButtons(dispenseButton2);
+        styleLeftButtons(purchaseOrderButton);
 
         left.add(logoButton);
         left.add(medicineButton);

@@ -151,4 +151,35 @@ public class StockDAO extends BaseDAO {
         return stks;
     }
 
+    public ArrayList<Stock> getByLowStock() throws SQLException{
+        ArrayList<Stock> stks = new ArrayList<>();
+        String sql = "select * from Stock where availableQuantity < 10";
+
+        PreparedStatement ps = c.prepareStatement(sql);
+
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()){
+            
+            int sID = rs .getInt("stockID");
+            int mid = rs.getInt ("medicineID");
+            String bNo = rs.getString("batchNo");
+            int aQuantity = rs.getInt("availableQuantity");
+            double uCost = rs.getDouble("unitCost");
+            Date mDate = rs.getDate("manufactureDate");
+            Date eDate = rs.getDate("expiryDate");
+            Date rDate = rs.getDate("receivedDate");
+            String sCondition = rs.getString("storageCondition");
+
+            Stock st = new Stock(sID, mid, bNo, aQuantity, uCost, mDate, eDate, rDate, sCondition);
+            stks.add(st);
+            
+        }
+
+        rs.close();
+        ps.close();
+
+        return stks;
+    }
+
 }
