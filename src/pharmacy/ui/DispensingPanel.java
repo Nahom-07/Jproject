@@ -54,7 +54,6 @@ public class DispensingPanel extends JPanel {
         });
     }
 
-    // Wraps a Medicine so the JComboBox shows the name instead of Object#toString()
     private static class MedicineItem extends Medicine {
         MedicineItem(Medicine m) {
             super(m.getMedicineID(), m.getMedicineName(), m.getGenericName(),
@@ -137,7 +136,6 @@ public class DispensingPanel extends JPanel {
         JScrollPane scroll = new JScrollPane(t);
         add(scroll, BorderLayout.CENTER);
 
-        // --- LISTENERS ---
 
         medicineCombo.addActionListener(new ActionListener() {
             @Override
@@ -171,7 +169,6 @@ public class DispensingPanel extends JPanel {
         }
     }
 
-    // Sums availableQuantity across every stock batch for the selected medicine
     private void refreshAvailableQtyLabel() {
         Medicine selected = (Medicine) medicineCombo.getSelectedItem();
         if (selected == null) {

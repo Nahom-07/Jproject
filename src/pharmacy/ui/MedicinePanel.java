@@ -150,9 +150,7 @@ public class MedicinePanel extends JPanel {
         JScrollPane scroll = new JScrollPane(t);
         add(scroll, BorderLayout.CENTER);
 
-        // --- BUTTON ACTION LISTENERS ---
-
-        // VIEW — refreshes the table
+        
         viewButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
